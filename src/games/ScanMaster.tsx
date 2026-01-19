@@ -88,7 +88,7 @@ const ScanMaster: React.FC = () => {
 
   // Flash squares one by one
   const flashSquaresSequentially = (squares: number[]) => {
-    setIsFlashing(true);
+    setIsFlashing(!isFlashing);
     let index = 0;
 
     const flashInterval = setInterval(() => {
@@ -141,9 +141,9 @@ const ScanMaster: React.FC = () => {
     const incorrectSelections = selectedSquares.filter(
       (s) => !flashedSquares.includes(s),
     );
-    const missedSquares = flashedSquares.filter(
-      (s) => !selectedSquares.includes(s),
-    );
+    // const missedSquares = flashedSquares.filter(
+    //   (s) => !selectedSquares.includes(s),
+    // );
 
     // Scoring: +10 per correct, -5 per incorrect
     const roundScore =
